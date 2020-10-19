@@ -77,8 +77,8 @@ void newmapfood(int map[26][26]) {
 		map[x][y] = 2;//随机食物
 }
 void newmapbomb(int map[26][26]) {
-	int x = (rand() % 24) + 2;
-	int y = (rand() % 24) + 2;
+	int x = (rand() % 23) + 2;
+	int y = (rand() % 23) + 2;
 	if (x != 1 && y != 1 && x != 25 && y != 25)
 		map[x][y] = 3;//随机炸弹
 }
@@ -191,7 +191,7 @@ void move(int map[26][26], int direction, int* s_x, int* s_y, int* length,int *s
 	else if (*p == 3) {
 		change(map, -*length / 2);
 		*length -= *length / 2;
-		*point -= 10;
+		*point -= 5;
 		if (*point < 0) {
 			endgame(rank, 0);
 		}
@@ -297,6 +297,7 @@ void f2(int rank[6]) {//难度界面
 			}
 		}EndBatchDraw();
 	}
+
 }
 //未完成的存档环节
 void f3() {
@@ -308,7 +309,7 @@ void f4() {
 	outtextxy(10, 10, _T("   这是一个用c++语言开发的贪吃蛇游戏,"));
 	outtextxy(10, 45, _T("绿色代表食物，黑色代表炸弹，紫色代表"));
 	outtextxy(10, 80, _T("毒草。吃一个食物会加一分，吃炸弹会长度"));
-	outtextxy(10, 115, _T("减半并扣10分，吃毒草会长度减一并扣2分。"));
+	outtextxy(10, 115, _T("减半并扣5分，吃毒草会长度减一并扣2分。"));
 	outtextxy(10, 150, _T("   您可以选择三种难度来体验游戏。"));
 	outtextxy(700, 700, _T("按ESC返回"));
 	int op = 1;
